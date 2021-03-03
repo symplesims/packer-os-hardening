@@ -265,5 +265,8 @@ tasks:
 Ansible  [Directory Layout](https://docs.ansible.com/ansible/latest/user_guide/sample_setup.html) 은
 유연하고 확장 가능한 playbook 구성이 용이 합니다.
 
-### 참고 
-Ansible 아키텍처와 내부 동작 방식에 대해서 [19 Minutes With Ansible](https://sysadmincasts.com/episodes/43-19-minutes-with-ansible-part-1-4) 영상이 도움이 됩니다.
+## ansible galaxy
+[ansible galaxy](https://galaxy.ansible.com/) 는 Guru 사용자가 쉽게 적용이 가능 하도록 playbook 을 제공 하고 있습니다.
+
+*참고로, Ansible 아키텍처와 내부 동작 방식에 대해서 알고싶다면 [19 Minutes With Ansible](https://sysadmincasts.com/episodes/43-19-minutes-with-ansible-part-1-4) 영상이 도움이 됩니다.
+
