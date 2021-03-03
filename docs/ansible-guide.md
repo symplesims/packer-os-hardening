@@ -172,7 +172,7 @@ httpd_service: "{{ 'apache2' if ansible_distribution == 'CentOS'
 tasks 작업에서 참조할 파일(예: shell, sql, cert, ...)이 위치 합니다.
 
 ```shell
-# roles/example/tasks/script.sh
+# roles/example/files/script.sh
 ---
 - name: execute custom configuration
   script: script.sh
