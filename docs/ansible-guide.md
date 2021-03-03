@@ -85,7 +85,7 @@ Ansible 에 포함된 기본 모듈을 확인 하려면 [모듈 목록](https://
 role 디렉토리를 중심으로 tasks, vars, handlers, fiels, templates, meta 의 하위 디렉토리가 자동으로 조합 되어 처리를 진행 합니다.
 
 ```shell
-common
+example
 ├── files
 ├── handlers
 ├── meta
@@ -168,11 +168,29 @@ httpd_service: "{{ 'apache2' if ansible_distribution == 'CentOS'
           else 'Unkown' }}"
 ```
 
+### meta
+현재 role 의 정보, 의존 하는 role 등을 정의합니다.
+
+```shell
+# roles/example/meta/main.yaml
+---
+info:
+  author: symplesims
+  description: OS Hardening for Linux
+  license: "OOO License"
+  
+dependencies:
+  - { role: httpd, port: 80 }
+  - { role: mysql, dbname: blog, charset: utf8 }
+```
+
 ### files
 tasks 작업에서 참조할 파일(예: shell, sql, cert, ...)이 위치 합니다.
 
 ```shell
 # roles/example/files/script.sh
+
+# roles/example/tasks/main.yml
 ---
 - name: execute custom configuration
   script: script.sh
@@ -183,6 +201,8 @@ httpd.conf 와 설정 파일과 같이 참조할 템플릿 파일이 위치 합�
 
 ```shell
 # roles/example/templates/httpd.conf.j2
+
+# roles/example/tasks/main.yml
 - name: httpd configuration
   template:
     src=templates/httpd.conf.j2
@@ -190,21 +210,6 @@ httpd.conf 와 설정 파일과 같이 참조할 템플릿 파일이 위치 합�
     owner=root
     group=root
     mode=0755
-```
-
-### meta
-현재 role 의 정보, 의존 하는 role 등을 정의합니다.
-
-```shell
----
-info:
-  author: symplesims
-  description: OS Hardening for Linux
-  license: "OOO License"
-  
-dependencies:
-  - { role: httpd, port: 80 }
-  - { role: mysql, dbname: blog, charset: utf8 }
 ```
 
 ### Facts
