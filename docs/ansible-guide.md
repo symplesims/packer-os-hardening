@@ -129,13 +129,13 @@ common
 handlers 실행은 tasks 의 *notify* 호출로부터 시작 됩니다. notify 는 handler 의 name 속성이나 listen 속성에 대해 call 합니다.
 
 ```shell
-# roles/example/handlers/main.yml
-
+# roles/example/tasks/main.yml
 tasks:
   - name: Restart middleware services
     command: echo "this task will restart the web services"
     notify: "restart middleware"
 
+# roles/example/handlers/main.yml
 handlers:
   - name: Restart memcached
     service:
