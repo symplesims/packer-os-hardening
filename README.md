@@ -68,3 +68,5 @@ lsof
 htop
 ```
 
+* Ansible 의 이해가 필요 하면 [ansible-guide](./docs/ansible-guide.md) 를 참고 하세요.
+
