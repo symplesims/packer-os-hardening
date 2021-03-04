@@ -237,8 +237,17 @@ tasks:
   when: ansible_distribution |lower == 'redhat'
 ```
 
-- ansible <target_host> -m ansible.builtin.setup 명령을 통해 facts 환경 변수를 확인 할 수 있습니다.
+ansible 명령을 통해 특정 관리 노드(호스트)의 facts 환경 변수를 확인 할 수 있습니다.
 
+```shell
+# 특정 Host 의 facts 환경 변수를 확인 
+ansible <target_host> -m ansible.builtin.setup 
+
+# 특정 Inventory 의 facts 환경 변수를 확인 
+ansible all -m ansible.builtin.setup -i test-inventory.yml
+```
+
+출격 결과 예시
 ```shell
 # sample output 
 {
